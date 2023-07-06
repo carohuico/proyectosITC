@@ -1,0 +1,1 @@
+Sistema que verifica las cantidades de agua transferidas de un punto a otro con medidas tomadas desde un medidor de velocidad de flujo conectando dos tuberías. Estos datos calculados los guarda en bloques tipo blockchain para evitar que hayan cambios en la cantidad de agua utilizada.
