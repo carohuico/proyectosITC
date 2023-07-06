@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Los 3 amigos</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="static/css/main.css" />
+	<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+	<style>
+		#footer {
+			background-color: #FD6720;
+			text-align: center;
+			padding: 1em;
+			margin-top: 2em;
+		}
+
+		img {
+			width: 100px;
+			height: auto;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="/" class="logo">
+					<center><span class="symbol"><img src="static/images/Los3amigos.png" alt="" /></span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/menu">Nuestro menú</a></li>
+				<li><a href="/pedido">Pide a domicilio</a></li>
+				<li><a href="/reservacion">Reservar ahora</a></li>
+				<li><a href="/sobre-nosotros">Sobre nosotros</a></li>
+				<li><a href="/admin">Admin</a></li>
+			</ul>
+		</nav>
+
+		<!-- Table -->
+		<section>
+			<center>
+				<h2>Personal</h2>
+			</center>
+			<form method="POST">
+			<label for="suc">Sucursal: </label>
+			<select id="suc" name="suc">
+				{% for suc in sucursales %}
+				<option value="{{suc[0]}}">{{ suc[1] }}</option>
+				{% endfor %}
+			</select>
+			<br>
+			<br>
+			<input type="submit" value="Mostrar">
+			</form>
+			{% if empleados %}
+			<h2>Empleados de la Sucursal Seleccionada</h2>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Salario</th>
+							<th>Cargo</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for empleado in empleados %}
+						<tr>
+							<td>{{empleado[0]}}</td>
+							<td>{{empleado[1]}}</td>
+							<td>{{empleado[2]}}</td>
+							<td>{{empleado[3]}}</td>
+							<td>{{empleado[4]}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% endif %}
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<p>@lostresamigos</p>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Scripts -->
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/browser.min.js"></script>
+	<script src="static/js/breakpoints.min.js"></script>
+	<script src="static/js/util.js"></script>
+	<script src="static/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Los 3 amigos</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="static/css/main.css" />
+	<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+	<style>
+		#footer {
+			background-color: #FD6720;
+			text-align: center;
+			padding: 1em;
+			margin-top: 2em;
+		}
+
+		img {
+			width: 100px;
+			height: auto;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="/" class="logo">
+					<center><span class="symbol"><img src="static/images/Los3amigos.png" alt="" /></span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/menu">Nuestro menú</a></li>
+				<li><a href="/pedido">Pide a domicilio</a></li>
+				<li><a href="/reservacion">Reservar ahora</a></li>
+				<li><a href="/sobre-nosotros">Sobre nosotros</a></li>
+				<li><a href="/admin">Admin</a></li>
+			</ul>
+		</nav>
+
+		<!-- Table -->
+		<section>
+			<center>
+				<h2>Mesas</h2>
+			</center>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>Ubicación</th>
+							<th>Asientos</th>
+							<th>Estado</th>
+							<th>Ganancias</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for mesa in mesas %}
+						<tr>	
+							<td>{{mesa[0]}}</td>
+							<td>{{mesa[1]}}</td>
+							<td>{{mesa[2]}}</td>
+							<td>{{mesa[3]}}</td>
+							<td>{{mesa[4]}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<br>
+		<section>
+		<!-- HTML PARA AGREGAR GANANCIAS DE UNA MESA EN PARTICULAS -->
+		  <form action="/actualizar_ganancias" method="post">
+			    <label for="mesa-id">ID de la mesa:</label>
+			    <input type="text" id="mesa-id" name="mesa-id" required>
+			    <label for="monto">Monto gastado:</label>
+			    <input type="text" id="monto" name="monto" required>
+			    <button type="submit">Agregar</button>
+		  </form>
+		</section>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<p>@lostresamigos</p>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Scripts -->
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/browser.min.js"></script>
+	<script src="static/js/breakpoints.min.js"></script>
+	<script src="static/js/util.js"></script>
+	<script src="static/js/main.js"></script>
+	<script>
+  // Obtener el formulario y el elemento de ganancias
+  const form = document.getElementById('ganancias-form');
+  const gananciasElement = document.querySelector('td[data-ganancias]');
+
+  // Manejar el envío del formulario
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el envío del formulario
+
+    // Obtener el ID de la mesa y el monto gastado
+    const mesaId = document.getElementById('mesa-id').value;
+    const monto = parseFloat(document.getElementById('monto').value);
+
+    // Obtener el elemento de ganancias correspondiente a la mesa
+    const mesaGananciasElement = document.querySelector(`td[data-mesa-id="${mesaId}"][data-ganancias]`);
+
+    // Verificar si se encontró el elemento de ganancias de la mesa
+    if (mesaGananciasElement) {
+      // Obtener el valor actual de las ganancias y sumar el monto gastado
+      let ganancias = parseFloat(mesaGananciasElement.dataset.ganancias);
+      ganancias += monto;
+
+      // Actualizar el valor de las ganancias en el elemento HTML
+      mesaGananciasElement.dataset.ganancias = ganancias;
+      mesaGananciasElement.textContent = ganancias.toFixed(2); // Mostrar el valor con dos decimales
+    }
+  });
+</script>
+</body>
+</html>

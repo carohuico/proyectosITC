@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Los 3 amigos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+		<style>
+			#footer {
+				background-color: #FD6720;
+				text-align: center;
+				padding: 1em;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="/" class="logo">
+									<center><span class="symbol"><img src="static/images/Los3amigos.png" alt="" /></span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="/">Inicio</a></li>
+							<li><a href="/menu.html">Nuestro menú</a></li>
+							<li><a href="/pedido">Pide a domicilio</a></li>
+							<li><a href="/reservacion">Reservar ahora</a></li>
+							<li><a href="/sobre-nosotros">Sobre nosotros</a></li>
+							<li><a href="/admin">Admin</a></li>
+						</ul>
+					</nav>
+
+					<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Pedido En Linea</h1>
+							<br>
+							<br>
+							<form action="/agregar_direccion" method="POST">
+								<div class="fields">
+                                                                  <div class="field half">
+                                                                        <label for="estado">Estado:</label>
+                                                                        <input type="text" id="estado" name="estado" required>
+                                                                  </div>
+                                                                  <div class="field half">
+                                                                        <label for="city">Ciudad:</label>
+                                                                        <input type="text" id="city" name="city" required>
+                                                                  </div>
+                                                                </div>
+								<div class="fields">
+								  <div class="field half">
+									<label for="CP">Código Postal:</label>
+									<input type="text" id="CP" name="CP" required>
+								  </div>
+								  <div class="field half">
+									<label for="Colonia">Colonia:</label>
+									<input type="text" id="Colonia" name="Colonia" required>
+								  </div>
+								</div>
+								<div class="fields">
+									<div class="field half">
+										<label for="Calle">Calle:</label>
+										<input type="text" id="Calle" name="Calle" required>
+								  </div>
+								  <div class="field half">
+										<label for="Num">Núm Exterior:</label>
+										<input type="text" id="Num" name="Num" required>
+								  </div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Continuar" class="primary" /></li>
+								</ul>
+							  </form>							  
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<p> </p>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>

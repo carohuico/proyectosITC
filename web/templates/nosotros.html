@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Sobre nosotros</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="static/css/main.css" />
+    <style>
+        /* Estilos personalizados */
+        #header {
+            padding: 0em 0 0em 0 ;
+            background-color: #FD6720;
+            text-align: center;
+            padding: 0em;
+            margin-bottom: 3em;
+        }
+
+        #header .inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #footer {
+            background-color: #FD6720;
+            text-align: center;
+            padding: 1em;
+        }
+
+        #main {
+            margin-top: 2em;
+        }
+
+        .image {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .image img {
+            width: 20em;
+            height: auto;
+        }
+
+        .content {
+            text-align: justify;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 2em;
+        }
+
+        #main h1 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .content.image-left {
+            justify-content: flex-start;
+        }
+        .content.image-left h2 {
+            text-align: left;
+        }
+        .content.image-left p {
+            text-align: left;
+        }
+
+        .content.image-right {
+            justify-content: flex-end;
+        }
+        .content.image-right h2 {
+            text-align: right;
+        }
+        .content.image-right p {
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <!-- Logo -->
+                    <a href="/" class="logo">
+                        <center><span class="symbol"><img src="static/images/Los3amigos.png" alt="" /></span>
+                    </a>
+                <!-- Nav -->
+                    <nav>
+                        <ul>
+                            <li><a href="#menu">Menu</a></li>
+                        </ul>
+                    </nav>
+            </div>
+        </header>
+        <!-- Menu -->
+            <nav id="menu">
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/menu">Nuestro menú</a></li>
+                    <li><a href="/pedido">Pide a domicilio</a></li>
+                    <li><a href="/reservacion">Reservar ahora</a></li>
+                    <li><a href="/sobre-nosotros">Sobre nosotros</a></li>
+		    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1>Sobre nosotros</h1>
+            </div>
+            <div class="inner">
+                <div class="content image-right">
+                    <div>
+                        <h2>Historia de nuestra empresa</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non nunc justo. Donec id risus metus. Nullam id risus auctor, ullamcorper neque a, fermentum mauris. Nam dignissim justo id elementum efficitur. Fusce eleifend tempor tortor, id eleifend neque dignissim id. Morbi maximus ex ligula, et suscipit neque fringilla nec. Integer ac turpis elit.</p>
+                    </div>
+                    <div class="image">
+                        <img src="static/images/historia.png" alt="Imagen 1" />
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="content image-left">
+                    <div class="image">
+                        <img src="static/images/crecimiento.png" alt="Imagen 2" />
+                    </div>
+                    <div>
+                        <h2>Nuestro crecimiento</h2>
+                        <p>Nullam iaculis enim vitae ante suscipit varius. In eget sagittis mi. Nullam aliquam interdum mi non eleifend. Mauris a dolor sit amet mauris tristique congue. Nam rhoncus est mauris, sit amet tincidunt sem cursus vitae. Integer sed sapien in neque placerat viverra eget et massa. Praesent consequat rutrum justo ut semper.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <p> </p>
+            </div>
+        </footer>
+    </div>
+    <!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script> 
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+</body>
+</html>

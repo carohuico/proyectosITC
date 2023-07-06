@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Los 3 amigos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/static/css/main.css"/>
+		<noscript><link rel="stylesheet" href="/static/css/noscript.css" /></noscript>
+	<style>
+      .star {
+        font-size: 25px;
+        color: #ccc;
+        cursor: pointer;
+      }
+
+      .star:hover,
+      .star:hover ~ .star {
+        color: orange;
+      }
+
+      .star:before {
+        content: "\2605";
+      }
+
+      .star:checked:before,
+      .star:checked ~ .star:before {
+        color: orange;
+      }
+
+      .star:checked ~ .star {
+        color: orange;
+      }
+
+      .image-left {
+          float: left;
+          margin-right: 20px;
+          margin-left: 20px;
+      }
+     .field, .actions {
+        text-align: right;
+      }
+      #footer {
+        background-color: #FD6720;
+        text-align: center;
+        padding: 1em;
+        margin-top: 2em;
+      }
+      </style>
+	</head>
+     <!-- Header -->
+     <header id="header">
+        <div class="inner">
+
+            <!-- Logo -->
+                <a href="/" class="logo">
+                    <center><span class="symbol"><img src="/static/images/Los3amigos.png" alt="" /></span>
+                </a>
+
+            <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+        </div>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <br> <br>
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/menu">Nuestro menú</a></li>
+            <li><a href="/pedidolinea">Pide a domicilio</a></li>
+            <li><a href="/reservacion">Reservar ahora</a></li>
+            <li><a href="/sobre-nosotros">Sobre nosotros</a></li>
+	    <li><a href="/admin">Admin</a></li>
+        </ul>
+    </nav>
+
+	<body>
+
+		<div class="image-left">
+            <img src="/{{producto[0]}}" alt="" style="width: 500px; height: auto;" />
+          </div>
+          <div>
+            <h2 style="margin-top: 0; margin-bottom: 0;">{{producto[1]}}</h2>
+            <p style="text-align: left; margin-bottom: 0.5em;">{{producto[2]}}</p>
+          </div>
+
+          <div>
+            <form>
+              <div class="fields"; style="padding-right: 11em">
+                <div class="field half">
+                  <center><label for="cantidad">Cantidad:</label></center>
+                  <center><input type="number" id="cantidad" name="cantidad" min="1" value="1"></center>
+                </div>
+                <div class="field half"> 
+                  <label for="subtotal">Costo: </label>
+		  <input type="text" id="costo-producto" name="costo-producto" readonly />
+                </div>
+                <div class="field">
+                  <ul class="actions">
+                    <center><li><input type="submit" value="Añadir al Carrito" class="primary"></li></center>
+		    <center><li><a href="/pedido">Comprar Ahora</a></center>
+                  </ul>
+                </div>
+            </form>
+          </div>
+
+<!-- Ver reseñas -->
+          <div>
+            <h2 style="margin-top: 0; margin-bottom: 0;">Reseñas</h2>
+            <!-- Aquí puedes agregar el código HTML para mostrar los comentarios existentes -->
+            <div>
+              <!-- Cada comentario podría tener su estructura HTML -->
+              <p>Comentario 1</p>
+              <p>Comentario 2</p>
+              <!-- Agrega más comentarios según sea necesario -->
+            </div>
+          </div>
+          
+
+
+<!-- Poner reseñas -->
+          <div>
+            <h2 style="margin-top: 0; margin-bottom: 0;">Agregar Reseña</h2>
+            <form>
+                <label for="puntuacion">Puntuación:</label>
+                    <div id="rating-stars">
+                        <input type="radio" id="star1" name="puntuacion" value="1">
+                        <label for="star1" class="star">&#9733;</label>
+                        <input type="radio" id="star2" name="puntuacion" value="2">
+                        <label for="star2" class="star">&#9733;</label>
+                        <input type="radio" id="star3" name="puntuacion" value="3">
+                        <label for="star3" class="star">&#9733;</label>
+                        <input type="radio" id="star4" name="puntuacion" value="4">
+                        <label for="star4" class="star">&#9733;</label>
+                        <input type="radio" id="star5" name="puntuacion" value="5">
+                        <label for="star5" class="star">&#9733;</label>
+                    </div>
+                    </div>
+
+              <div class="fields">
+                <div class="field">
+                  <label  for="nombre">Nombre:</label>
+                  <input type="text" id="nombre" name="nombre">
+                </div>
+                <div class="field">
+                  <label for="comentario">Comentario:</label>
+                  <textarea id="comentario" name="comentario"></textarea>
+                  <br>
+                </div>
+              </div>
+
+             
+
+              <ul class="actions">
+                
+                <li><input type="submit" value="Agregar Reseña" class="primary"></li>
+              </ul>
+            </form>
+          </div>
+                                  
+
+		 <!-- Footer -->
+     <footer id="footer">
+      <div class="inner">
+        <p>@lostresamigos</p>
+      </div>
+    </footer>
+
+	</div>
+
+<!-- Scripts -->
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/browser.min.js"></script>
+	<script src="/static/js/breakpoints.min.js"></script>
+	<script src="/static/js/util.js"></script>
+	<script src="/static/js/main.js"></script>
+<script>
+  // Cálculo del costo en tiempo real
+  const costo = {{producto[3]}};
+  const numProductos = document.getElementById('cantidad');
+  const costInput = document.getElementById('costo-producto');
+
+  numProductos.addEventListener('input', function () {
+    const numProductosValue = parseInt(numProductos.value);
+    const costoFinal = costo * numProductosValue;
+    costInput.value = costoFinal;
+  });
+</script>
+
+</body>
+</html>
