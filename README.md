@@ -1,2 +1,2 @@
 # proyectosITC
-Proyectos o trabajos realizados dentro de la carrera.
+Proyectos o trabajos relevantes que he realizado dentro de la carrera.
